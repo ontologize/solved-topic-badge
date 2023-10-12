@@ -121,7 +121,7 @@ body.solvable-topic:not(.solved-topic) {
     .more-topics__list {
       .topic-list-body {
         .topic-list-item {
-          &.solvable-topic {
+          &.solvable {
             &:first-child td {
               padding-top: 12px;
             }
