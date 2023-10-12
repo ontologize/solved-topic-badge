@@ -1,0 +1,59 @@
+type:
+  type: "enum"
+  default: "styled"
+  choices:
+    - inline
+placement:
+  type: "enum"
+  default: "before-title"
+  choices:
+    - after-title
+border-radius:
+  type: "string"
+  default: "2em"
+
+solved_indicator:
+  type: "string"
+  default: "✔"
+solved_label:
+  type: "string"
+  default: "Solved"
+solved_color:
+  type: "string"
+  default: "var(--secondary)"
+solved_background:
+  type: "string"
+  default: "var(--success)"
+solved_border_color:
+  type: "string"
+  default: "transparent"
+
+enable_solved_topic_background:
+  type: "bool"
+  default: false
+solved_topic_background:
+  type: "string"
+  default: "var(--success-low)"
+
+unsolved_indicator:
+  type: "string"
+  default: "✘"
+unsolved_label:
+  type: "string"
+  default: "Unsolved"
+unsolved_color:
+  type: "string"
+  default: "var(--secondary)"
+unsolved_background:
+  type: "string"
+  default: "var(--danger)"
+unsolved_border_color:
+  type: "string"
+  default: "transparent"
+
+enable_unsolved_topic_background:
+  type: "bool"
+  default: false
+unsolved_topic_background:
+  type: "string"
+  default: "var(--danger-low)"

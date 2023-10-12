@@ -1,0 +1,133 @@
+@import "mixins";
+
+// Solved
+body.solved-topic,
+body.solvable-topic.solved-topic {
+  #topic-title {
+    .fancy-title {
+      @if $type == "inline" {
+        &:before {
+          content: "#{$solved_indicator} #{$solved_label}";
+        }
+      }
+      @if $type == "styled" {
+        @if $placement == "before-title" {
+          &:before {
+            content: "#{$solved_indicator} #{$solved_label}";
+            @include solved-style;
+            @include topic-title-indicator-before;
+          }
+        }
+        @if $placement == "after-title" {
+          &:after {
+            content: "#{$solved_indicator} #{$solved_label}";
+            @include solved-style;
+            @include topic-title-indicator-after;           
+          }
+        }
+      }
+    }
+  }
+
+  // Header title
+  .extra-info-wrapper {
+    .topic-link {
+      @if $type == "inline" {
+        &:before {
+          content: "#{$solved_indicator} #{$solved_label} ";
+        }
+      }
+      @if $type == "styled" {
+        @if $placement == "before-title" {
+          &:before {
+            content: "#{$solved_indicator} #{$solved_label}";
+            @include solved-style;
+            @include topic-header-indicator-before;
+          }
+        }
+        @if $placement == "after-title" {
+          &:after {
+            content: "#{$solved_indicator} #{$solved_label}";
+            @include solved-style;
+            @include topic-header-indicator-after;  
+          }
+        }
+      }
+    }
+  }
+}
+
+// Unsolved
+body.solvable-topic:not(.solved-topic) {
+  #topic-title {
+    .fancy-title {
+      @if $type == "inline" {
+        &:before {
+          content: "#{$unsolved_indicator} #{$unsolved_label}";
+        }
+      }
+      @if $type == "styled" {
+        @if $placement == "before-title" {
+          &:before {
+            content: "#{$unsolved_indicator} #{$unsolved_label}";
+            @include unsolved-style;
+            @include topic-title-indicator-before;          
+          }
+        }
+        @if $placement == "after-title" {
+          &:after {
+            content: "#{$unsolved_indicator} #{$unsolved_label}";
+            @include unsolved-style;
+            @include topic-title-indicator-after;
+          }
+        }
+      }
+    }
+  }
+
+  // Header title
+  .extra-info-wrapper {
+    .topic-link {
+      @if $type == "inline" {
+        &:before {
+          content: "#{$unsolved_indicator} #{$unsolved_label}";
+        }
+      }
+      @if $type == "styled" {
+        @if $placement == "before-title" {
+          &:before {
+            content: "#{$unsolved_indicator} #{$unsolved_label}";
+            @include unsolved-style;
+            @include topic-header-indicator-before;
+          }
+        }
+        @if $placement == "after-title" {
+          &:after {
+            content: "#{$unsolved_indicator} #{$unsolved_label}";
+            @include unsolved-style;
+            @include topic-header-indicator-after;            
+          }
+        }
+      }
+    }
+  }
+}
+
+// Suggested topics
+@if ($enable-solved-topic-background == "true") or
+    ($enable-unsolved-topic-background == "true") 
+{
+  .more-topics__container {
+    .more-topics__list {
+      .topic-list-body {
+        .topic-list-item {
+          &.solvable-topic {
+            &:first-child td {
+              padding-top: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

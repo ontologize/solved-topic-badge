@@ -1,0 +1,95 @@
+@import "mixins";
+
+.topic-list-item {
+  &.status-solved {
+    // Solved Indicator
+    .title {
+      @if $type == "inline" {
+        &:before {
+          content: "#{$solved_indicator} #{$solved_label} ";
+        }
+      }
+      @if $type == "styled" {
+        @if $placement == "before-title" {
+          &:before {
+            content: "#{$solved_indicator} #{$solved_label}";
+            @include solved-style;
+            @include topic-list-indicator-before;
+          }
+        }
+        @if $placement == "after-title" {
+          &:after {
+            content: "#{$solved_indicator} #{$solved_label}";
+            @include solved-style;
+            @include topic-list-indicator-after;
+          }
+        }
+      }
+    }
+    
+    // Solved Topic Style
+    @if $enable-solved-topic-background == "true" {
+      background: #{$solved_topic_background};
+      &.highlighted {
+        animation: solved-background-fade-topiclight 2s ease-out;
+      }
+    }
+  }
+  
+  // Unsolved
+  &.solvable {
+    &:not(.status-solved) { 
+      // Unsolved Indicator
+      .title {
+        @if $type == "inline" {
+          &:before {
+            content: "#{$unsolved_indicator} #{$unsolved_label} ";
+          }
+        }
+        @if $type == "styled" {
+          @if $placement == "before-title" {
+            &:before {
+              content: "#{$unsolved_indicator} #{$unsolved_label}";
+              @include unsolved-style;
+              @include topic-list-indicator-before;
+            }
+          }
+          @if $placement == "after-title" {
+            &:after {
+              content: "#{$unsolved_indicator} #{$unsolved_label}";
+              @include unsolved-style;
+              @include topic-list-indicator-after;
+            }
+          }
+        }
+      }
+
+      // Unsolved Topic Style
+      @if $enable-unsolved-topic-background == "true" {
+        background: #{$unsolved_topic_background};
+        &.highlighted {
+          animation: unsolved-background-fade-topiclight 2s ease-out;
+        }
+      }
+    }
+  }
+}
+
+// Keyframes
+@keyframes solved-background-fade-topiclight {
+  0% {
+    background-color: var(--tertiary-low);
+  }
+  100% {
+    background-color: #{$solved_topic_background};
+  }
+}
+
+@keyframes unsolved-background-fade-topiclight {
+  0% {
+    background-color: var(--tertiary-low);
+  }
+  100% {
+    background-color: #{$unsolved_topic_background};
+  }
+}

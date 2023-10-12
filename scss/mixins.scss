@@ -1,0 +1,78 @@
+@mixin global {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 7px;
+  border-radius: #{$border_radius};
+  font-size: var(--font-down-2);
+  line-height: var(--line-height-small);
+  border: 1px solid transparent;
+}
+
+@mixin solved-style {
+  color: #{$solved_color};
+  background: #{$solved_background};
+  border-color: #{$solved_border_color};
+}
+
+@mixin unsolved-style {
+  color: #{$unsolved_color};
+  background: #{$unsolved_background};
+  border-color: #{$unsolved_border_color};
+}
+
+// Topic List Indicator
+@mixin topic-list-indicator-before {
+  @include global;
+  margin-right: 0.5em;
+  margin-left: -0.2em;
+  transform: translateY(-2px);
+}
+
+@mixin topic-list-indicator-after {
+  @include global;
+  margin-left: 0.5em;
+  transform: translateY(-1px);
+}
+
+// Topic Title Indicator
+@mixin topic-title-indicator-before {
+  @include global;
+  font-size: var(--font-down-4);
+  transform: translateY(-5px);
+  .mobile-view & {
+    transform: translateY(-3px);
+  }
+}
+
+@mixin topic-title-indicator-after {
+  @include global;
+  font-size: var(--font-down-4);
+  transform: translateY(-5px);
+  .mobile-view & {
+    transform: translateY(-3px);
+  }
+}
+
+// Topic Header Indicator
+@mixin topic-header-indicator-before {
+  @include global;
+  margin-right: 0.5em;
+  font-size: var(--font-down-4);
+  transform: translateY(-4px);
+  .mobile-view & {
+    transform: translateY(-2px);
+    font-size: var(--font-down-3);
+  }
+}
+
+@mixin topic-header-indicator-after {
+  @include global;
+  margin-left: 0.5em;
+  font-size: var(--font-down-4);
+  transform: translateY(-4px);
+  .mobile-view & {
+    transform: translateY(-2px);
+    font-size: var(--font-down-3);
+  }
+}
+  
