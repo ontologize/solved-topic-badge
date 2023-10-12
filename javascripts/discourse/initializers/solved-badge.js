@@ -1,13 +1,14 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import discourseComputed from "discourse-common/utils/decorators";
 import TopicListItem from "discourse/components/topic-list-item";
+import LatestTopicListItem from "discourse/components/latest-topic-list-item";
 
 export default {
   name: "solved-badge",
 
   initialize(container) {
     withPluginApi("0.8", api => {
-      
+
       TopicListItem.reopen({
         @discourseComputed()
         unboundClassNames() {
@@ -18,6 +19,20 @@ export default {
           return classList;
         },
       });
+
+      LatestTopicListItem.reopen({
+        @discourseComputed()
+        unboundClassNames() {
+          let classList = this._super(...arguments);
+          if (this.topic.can_have_answer) {
+            classList += " solvable";
+          }
+          if (this.topic.has_accepted_answer) {
+            classList += " status-solved";
+          }
+          return classList;
+        },
+      });      
 
       api.onAppEvent("page:topic-loaded", (topic) => {
         if (!topic) {
