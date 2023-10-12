@@ -1,6 +1,7 @@
 @import "mixins";
 
-.topic-list-item {
+.topic-list-item,
+.latest-topic-list-item {
   &.status-solved {
     // Solved Indicator
     .title {
@@ -75,7 +76,9 @@
   }
 }
 
-.topic-list-item {
+// Hide default icon
+.topic-list-item,
+.latest-topic-list-item {
   &.solvable {
     .topic-statuses {
       .topic-status {
