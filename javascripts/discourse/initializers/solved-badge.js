@@ -50,8 +50,8 @@ export default {
           document.body.classList.remove("solved-topic");
         }        
       });
-      
-      api.decorateTopicTitle((topic) => {
+
+      api.onAppEvent("header:show-topic", (topic) => {
         const solvedTopic = document.body.classList.contains("solved-topic");
         const solvableTopic = document.body.classList.contains("solvable-topic");
         
