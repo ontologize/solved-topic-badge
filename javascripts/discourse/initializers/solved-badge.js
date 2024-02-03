@@ -47,6 +47,7 @@ export default {
         if (topic.accepted_answer) {
           console.log("topic");
           console.log(topic);
+          console.log(document.body)
           document.body.classList.add("solved-topic");
         } else {
           document.body.classList.remove("solved-topic");
@@ -56,9 +57,6 @@ export default {
       api.onAppEvent("header:show-topic", (topic) => {
         const solvedTopic = document.body.classList.contains("solved-topic");
         const solvableTopic = document.body.classList.contains("solvable-topic");
-        const c = document.querySelector(`h1[data-topic-id="${topic.id}"]`)
-        console.log("c")
-        console.log(c)
         
         if (topic.accepted_answer) {
           if (!solvedTopic) {
