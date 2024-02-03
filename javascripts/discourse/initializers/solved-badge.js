@@ -47,7 +47,8 @@ export default {
         if (topic.accepted_answer) {
           console.log("topic");
           console.log(topic);
-          const c = document.querySelector(`h1[data-topic-id="${topic.id}"]`)
+          const c = document.querySelector(`'h1[data-topic-id="${topic.id}"]'`)
+          console.log("c")
           console.log(c)
           document.body.classList.add("solved-topic");
         } else {
