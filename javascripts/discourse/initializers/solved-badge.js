@@ -50,6 +50,9 @@ export default {
           const c = document.querySelector(`h1[data-topic-id="${topic.id}"]`)
           console.log("c")
           console.log(c)
+          const x = document.querySelector(`h1`)
+          console.log("x")
+          console.log(x)
           document.body.classList.add("solved-topic");
         } else {
           document.body.classList.remove("solved-topic");
