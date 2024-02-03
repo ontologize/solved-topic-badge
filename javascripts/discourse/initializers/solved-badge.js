@@ -45,6 +45,7 @@ export default {
         }        
         
         if (topic.accepted_answer) {
+          console.log(document.body.innerHTML)
           console.log("topic");
           console.log(topic);
           const c = document.querySelector(`h1[data-topic-id="${topic.id}"]`)
