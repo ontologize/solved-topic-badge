@@ -1,7 +1,7 @@
-import { withPluginApi } from "discourse/lib/plugin-api";
 import discourseComputed from "discourse-common/utils/decorators";
-import TopicListItem from "discourse/components/topic-list-item";
 import LatestTopicListItem from "discourse/components/latest-topic-list-item";
+import TopicListItem from "discourse/components/topic-list-item";
+import { withPluginApi } from "discourse/lib/plugin-api";
 
 export default {
   name: "solved-badge",
@@ -45,6 +45,8 @@ export default {
         }        
         
         if (topic.accepted_answer) {
+          console.log("topic");
+          console.log(topic);
           document.body.classList.add("solved-topic");
         } else {
           document.body.classList.remove("solved-topic");
