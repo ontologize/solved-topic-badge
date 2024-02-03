@@ -47,7 +47,7 @@ export default {
         if (topic.accepted_answer) {
           console.log("topic");
           console.log(topic);
-          console.log(document.body)
+          console.log(document.body.innerHTML)
           document.body.classList.add("solved-topic");
         } else {
           document.body.classList.remove("solved-topic");
